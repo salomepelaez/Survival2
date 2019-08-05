@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
-{
-    int x = Random.Range(10, 21);
-    GameObject[] people;
-
+{    
     void Start()
-    {
-        Zombie theZombie = new Zombie();
+    {     
+         int x = Random.Range(10, 21);
 
         for (int j = 0; j < x; j++)
         {
@@ -24,10 +21,10 @@ public class Manager : MonoBehaviour
             switch (change)
             {
                 case 0:
-                    thePeople.GetComponent<Zombie>();
+                    thePeople.AddComponent<Zombie>();
                     break;
                 case 1:
-                    thePeople.GetComponent<Renderer>().material.color = Color.cyan;
+                    thePeople.AddComponent<Villagers>();
                     break; 
             }    
         }
