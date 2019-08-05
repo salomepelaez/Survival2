@@ -5,16 +5,7 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {           
     public void Start()
-    {     
-       
-        /*
-         
-         * Este bloque de código se encarga de crear un objeto primitivo, en este caso un cubo.
-         * También le asigna una ubicación aleatoria utilizando un random y un Vector3.
-         * También le asigna un color aleatorio y un mensaje dependiendo de este.
-         
-        */
-
+    {  
         GameObject zZombie = GameObject.CreatePrimitive(PrimitiveType.Cube);
         
         int color = Random.Range(0, 3);
@@ -32,7 +23,7 @@ public class Zombie : MonoBehaviour
                 break;
         }
 
-        
+        transform.name = "Zombie";
     }
 
     struct ZombieData
@@ -52,6 +43,6 @@ public class Zombie : MonoBehaviour
             Moving
         }
     }
-}
+} 
 
 
