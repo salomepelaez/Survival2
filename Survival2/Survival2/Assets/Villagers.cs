@@ -7,8 +7,8 @@ public class Villagers : MonoBehaviour
     void Start()
     {
         transform.name = "Villager";
-        GameObject Villager = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        Villager.GetComponent<Renderer>().material.color = Color.yellow;
+        
+        GetComponent<Renderer>().material.color = Color.yellow;
     }
 
     
