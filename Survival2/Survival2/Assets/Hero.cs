@@ -22,19 +22,18 @@ public class Hero : MonoBehaviour
         s.AddComponent<HeroMove>();
         s.AddComponent<HeroAim>();
 
-        pov.transform.SetParent(this.transform); 
+        pov.transform.SetParent(this.transform);
         s.transform.localPosition = Vector3.zero;
     }
 
     public void Update()
     {
         float rotat = transform.eulerAngles.y; 
-        transform.rotation = Quaternion.Euler(0.0f, rotat, 0.0f); 
+        transform.rotation = Quaternion.Euler(0.0f, rotat, 0.0f);
+                
     }
-
-    public MyTaste taste;
-
-    public void OnCollisionEnter(Collision collision) // No funciona el collider
+    
+    public void OnCollisionEnter(Collision collision)
     {
         if(collision.transform.name == "Villager")
         {
@@ -43,58 +42,65 @@ public class Hero : MonoBehaviour
 
         if (collision.transform.name == "Zombie")
         {
-            int tastes = Random.Range(0, 6);
-            
-            switch (tastes)
-            {
-                case 0:
-                    taste = MyTaste.Cerebros;
+            Messages();
+            Debug.Log("alv");
+        }
+    }
 
-                    break;
+    public MyTaste taste; //Hasta acá funciona pero el collider nel :(
+    public void Messages()
+    {
+        int tastes = Random.Range(0, 6);
 
-                case 1:
-                    taste = MyTaste.Corazones;
+        switch (tastes)
+        {
+            case 0:
+                taste = MyTaste.Cerebros;
 
-                    break;
+                break;
 
-                case 2:
-                    taste = MyTaste.Ojos;
-                    break;
+            case 1:
+                taste = MyTaste.Corazones;
 
-                case 3:
-                    taste = MyTaste.Orejas;
-                    break;
+                break;
 
-                case 4:
-                    taste = MyTaste.Bocas;
-                    break;
+            case 2:
+                taste = MyTaste.Ojos;
+                break;
 
-            }
+            case 3:
+                taste = MyTaste.Orejas;
+                break;
 
-            if (taste == MyTaste.Cerebros)
-            {
-                Debug.Log("Waaaarr quiero comer " + (taste));
-            }
+            case 4:
+                taste = MyTaste.Bocas;
+                break;
 
-            if (taste == MyTaste.Corazones)
-            {
-                Debug.Log("Waaaarr quiero comer " + (taste));
-            }
+        }
 
-            if (taste == MyTaste.Ojos)
-            {
-                Debug.Log("Waaaarr quiero comer " + (taste));
-            }
+        if (taste == MyTaste.Cerebros)
+        {
+            Debug.Log("Waaaarr quiero comer " + (taste));
+        }
 
-            if (taste == MyTaste.Orejas)
-            {
-                Debug.Log("Waaaarr quiero comer " + (taste));
-            }
+        if (taste == MyTaste.Corazones)
+        {
+            Debug.Log("Waaaarr quiero comer " + (taste));
+        }
 
-            if (taste == MyTaste.Bocas)
-            {
-                Debug.Log("Waaaarr quiero comer " + (taste));
-            }
+        if (taste == MyTaste.Ojos)
+        {
+            Debug.Log("Waaaarr quiero comer " + (taste));
+        }
+
+        if (taste == MyTaste.Orejas)
+        {
+            Debug.Log("Waaaarr quiero comer " + (taste));
+        }
+
+        if (taste == MyTaste.Bocas)
+        {
+            Debug.Log("Waaaarr quiero comer " + (taste));
         }
     }
 }
