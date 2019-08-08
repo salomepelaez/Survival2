@@ -22,7 +22,7 @@ public class Hero : MonoBehaviour
         s.AddComponent<HeroMove>();
         s.AddComponent<HeroAim>();
 
-        pov.transform.SetParent(this.transform); // hasta acá funciona :D
+        pov.transform.SetParent(this.transform); 
         s.transform.localPosition = Vector3.zero;
     }
 
@@ -34,7 +34,7 @@ public class Hero : MonoBehaviour
 
     public MyTaste taste;
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision) // No funciona el collider
     {
         if(collision.transform.name == "Villager")
         {
