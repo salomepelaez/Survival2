@@ -4,14 +4,33 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    public GameObject held;
+    GameObject pov;
 
     void Start()
     {
-        GameObject s = Instantiate(held, Vector3.zero, Quaternion.identity);
-        
+        GameObject s = GameObject.CreatePrimitive(PrimitiveType.Cube);        
         s.GetComponent<Renderer>().material.color = Color.black;
+
+        Vector3 posicion = new Vector3();
+        posicion.x = Random.Range(-30, 30);
+        posicion.z = Random.Range(-30, 30);
+
+        GameObject pov = new GameObject();
+        pov.AddComponent<Camera>();
+        pov.AddComponent<HeroMove>();
+        pov.AddComponent<HeroAim>();
+
+        pov.transform.SetParent(this.transform); // Funciona pero atraviesa bloques y se sale la cámara
+        pov.transform.localPosition = Vector3.zero;
     }
+
+    public void Update()
+    {
+        float rotat = transform.eulerAngles.y; 
+        transform.rotation = Quaternion.Euler(0.0f, rotat, 0.0f); 
+    }
+
+    public MyTaste taste;
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -22,7 +41,58 @@ public class Hero : MonoBehaviour
 
         if (collision.transform.name == "Zombie")
         {
-            Debug.Log("guau");
+            int tastes = Random.Range(0, 6);
+            
+            switch (tastes)
+            {
+                case 0:
+                    taste = MyTaste.Cerebros;
+
+                    break;
+
+                case 1:
+                    taste = MyTaste.Corazones;
+
+                    break;
+
+                case 2:
+                    taste = MyTaste.Ojos;
+                    break;
+
+                case 3:
+                    taste = MyTaste.Orejas;
+                    break;
+
+                case 4:
+                    taste = MyTaste.Bocas;
+                    break;
+
+            }
+
+            if (taste == MyTaste.Cerebros)
+            {
+                Debug.Log("Waaaarr quiero comer " + (taste));
+            }
+
+            if (taste == MyTaste.Corazones)
+            {
+                Debug.Log("Waaaarr quiero comer " + (taste));
+            }
+
+            if (taste == MyTaste.Ojos)
+            {
+                Debug.Log("Waaaarr quiero comer " + (taste));
+            }
+
+            if (taste == MyTaste.Orejas)
+            {
+                Debug.Log("Waaaarr quiero comer " + (taste));
+            }
+
+            if (taste == MyTaste.Bocas)
+            {
+                Debug.Log("Waaaarr quiero comer " + (taste));
+            }
         }
     }
 }
