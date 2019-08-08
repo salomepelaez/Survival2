@@ -16,12 +16,12 @@ public class Hero : MonoBehaviour
         posicion.z = Random.Range(-30, 30);
 
         GameObject pov = new GameObject();
-        pov.AddComponent<Camera>();
-        pov.AddComponent<HeroMove>();
-        pov.AddComponent<HeroAim>();
+        s.AddComponent<Camera>();
+        s.AddComponent<HeroMove>();
+        s.AddComponent<HeroAim>();
 
-        pov.transform.SetParent(this.transform); // Funciona pero atraviesa bloques y se sale la cámara
-        pov.transform.localPosition = Vector3.zero;
+        pov.transform.SetParent(this.transform); // hasta acá funciona :D
+        s.transform.localPosition = Vector3.zero;
     }
 
     public void Update()
