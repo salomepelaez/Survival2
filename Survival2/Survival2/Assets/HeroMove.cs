@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroMove : MonoBehaviour
 {
-    public GameObject camara; //Se creó un GameObject público, de esta manera podremos acceder a él desde el inspector, y agregar la cámara principal.
+    
     public float speed = 0.1f; // La velocidad se asignó como un flotante.
 
     void Update()
@@ -33,8 +33,7 @@ public class HeroMove : MonoBehaviour
             utilizar un signo negativo para ir hacia la dirección contraria*/
         }
 
-        float rotat = camara.transform.eulerAngles.y; // La rotación se asignó como un flotante, y es la que permite transformar la mira de la cámara.
-        transform.rotation = Quaternion.Euler(0.0f, rotat, 0.0f); // Puesto que la rotación fue asignada en Y, es necesario asignarle el float a los parámetros.
+        
 
     }
 }
