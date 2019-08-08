@@ -8,7 +8,9 @@ public class Hero : MonoBehaviour
 
     void Start()
     {
-        GameObject s = GameObject.CreatePrimitive(PrimitiveType.Cube);        
+        GameObject s = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        s.AddComponent<Rigidbody>();
+        s.GetComponent<Rigidbody>().freezeRotation = true;
         s.GetComponent<Renderer>().material.color = Color.black;
 
         Vector3 posicion = new Vector3();
