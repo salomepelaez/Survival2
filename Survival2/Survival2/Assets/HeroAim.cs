@@ -8,7 +8,7 @@ public class HeroAim : MonoBehaviour
     float mouseX;
     float mouseY;
     public bool InvertedMouse; //El booleano Inverted Mouse, será el que en el siguiente bloque de código invierta la dirección del mouse.
-
+        
     void Update()
     {
         mouseX += Input.GetAxis("Mouse X"); // Con el Input, obtenemos la ubicación en X del mouse.
