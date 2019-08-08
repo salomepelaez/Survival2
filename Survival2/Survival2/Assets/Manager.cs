@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
             posicion.z = Random.Range(-30, 30);
             thePeople.transform.position = posicion;
 
-            int change = Random.Range(0, 2);
+            int change = Random.Range(0, 3);
 
             switch (change)
             {
