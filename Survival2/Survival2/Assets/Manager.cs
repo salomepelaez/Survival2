@@ -29,7 +29,14 @@ public class Manager : MonoBehaviour
                     thePeople.GetComponent<Villagers>();
                     break; 
             }    
-        }
+        } // No sigue el movimiento de la cámara
+
+        GameObject hero = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        hero.AddComponent<Hero>();
+        hero.AddComponent<Rigidbody>();
+        hero.GetComponent<Rigidbody>().freezeRotation = true;
+        hero.GetComponent<Renderer>().material.color = Color.black;
+        hero.AddComponent<HeroMove>();
     }
 }
 
