@@ -33,7 +33,8 @@ public class HeroMove : MonoBehaviour
             utilizar un signo negativo para ir hacia la dirección contraria*/
         }
 
-        
+        float rotat = transform.eulerAngles.y;
+        transform.rotation = Quaternion.Euler(0.0f, rotat, 0.0f);
 
     }
 }
