@@ -6,8 +6,8 @@ public class Villagers : MonoBehaviour
 {
     void Start()
     {
-        transform.name = "Villager";
-        
+        transform.tag = "Villager";
+                
         GetComponent<Renderer>().material.color = Color.yellow;
     }
 
