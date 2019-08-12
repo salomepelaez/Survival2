@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     GameObject pov;
-
+   
     void Start()
     {       
         Vector3 posicion = new Vector3();
@@ -23,20 +23,23 @@ public class Hero : MonoBehaviour
 
     public void Update()
     {
+        float rotat = transform.eulerAngles.y;
+        transform.rotation = Quaternion.Euler(0.0f, rotat, 0.0f);
 
-                
     }
     
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.transform.tag == "Villager")
         {
-            Debug.Log("miau");
+           
+            Debug.Log("Aldeano");
         }
 
         if (collision.transform.tag == "Zombie")
-        {            
-            Debug.Log("alv");
+        {
+            collision.transform.GetComponent<Zombie>().PrintMessages();
+           
         }
     }
         
