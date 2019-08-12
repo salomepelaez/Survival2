@@ -15,28 +15,36 @@ public class Manager : MonoBehaviour
             posicion.x = Random.Range(-30, 30);
             posicion.z = Random.Range(-30, 30);
             thePeople.transform.position = posicion;
+            thePeople.AddComponent<Rigidbody>();
+            thePeople.GetComponent<Rigidbody>().freezeRotation = true;
 
             int change = Random.Range(0, 2);
-
-            switch (change)
+            if (j == 0)
             {
-                case 0:
-                    thePeople.AddComponent<Zombie>();
-                    thePeople.GetComponent<Zombie>();
-                    break;
-                case 1:
-                    thePeople.AddComponent<Villagers>();
-                    thePeople.GetComponent<Villagers>();
-                    break; 
-            }    
-        } // No sigue el movimiento de la cámara
+                thePeople.AddComponent<Hero>();
+                thePeople.GetComponent<Renderer>().material.color = Color.black;
+            }
 
-        GameObject hero = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        hero.AddComponent<Hero>();
-        hero.AddComponent<Rigidbody>();
-        hero.GetComponent<Rigidbody>().freezeRotation = true;
-        hero.GetComponent<Renderer>().material.color = Color.black;
-        hero.AddComponent<HeroMove>();
+            else
+            {
+                switch (change)
+                {
+                    case 0:
+                        thePeople.AddComponent<Zombie>();
+                        thePeople.GetComponent<Zombie>();
+                        break;
+                    case 1:
+                        thePeople.AddComponent<Villagers>();
+                        thePeople.GetComponent<Villagers>();
+                        break;
+                }
+            }
+        } 
+
+        
+                
+        
+      
     }
 }
 
