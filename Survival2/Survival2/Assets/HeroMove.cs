@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroMove : MonoBehaviour
 {
-    
+    public HeroAim hA;
     public float speed = 0.1f; // La velocidad se asignó como un flotante.
 
     void Update()
@@ -13,7 +13,7 @@ public class HeroMove : MonoBehaviour
         y transformar la ubicación dependiendo de la dirección que se le haya asignado*/
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.forward * speed; // A la tecla W se le asignó la dirección que mueve hacia adelante.
+            transform.position += transform.forward * speed ; // A la tecla W se le asignó la dirección que mueve hacia adelante.
         }
 
         if (Input.GetKey(KeyCode.S))
