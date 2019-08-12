@@ -24,32 +24,39 @@ public class Zombie : MonoBehaviour
         InvokeRepeating("ZombieMove", 5.0f, 5.0f);
         transform.tag = "Zombie";
     }
-        
+
+    public Move zM;
     string move;
 
     void ZombieMove()
     {
-        int pst = Random.Range(0, 5);
+        int pst = Random.Range(0, 6);
         
         switch (pst)
         {
             case 0:
+
+                zM = Move.Moving;
                 move = "Forwards";
                 break;
 
             case 1:
+                zM = Move.Moving;
                 move = "Backwards";
                 break;
 
             case 2:
+                zM = Move.Moving;
                 move = "Right";
                 break;
 
             case 3:
+                zM = Move.Moving;
                 move = "Left";
                 break;
 
             case 4:
+                zM = Move.Idle;
                 move = "Idle";
                 break;
         }
@@ -83,7 +90,7 @@ public class Zombie : MonoBehaviour
 
         else if(move == "Idle")
         {
-           //Vacío xd
+           //No hace nada, está idle xd ¿qué esperabas?
         }
     }
 
@@ -160,11 +167,6 @@ public enum Move
     Moving
 }
 
-public struct ZombieData
-{
-    public MyTaste mT;
-    public Move mM;
-}
 
 
 
