@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
+    HeroSpeed hs;
     GameObject pov;
    
     void Start()
@@ -15,6 +16,8 @@ public class Hero : MonoBehaviour
         GameObject pov = new GameObject();
         pov.AddComponent<Camera>();        
         pov.AddComponent<HeroAim>();
+        gameObject.AddComponent<HeroMove>();
+        gameObject.GetComponent<HeroMove>().speed = hs.RandomSpeed();
 
         pov.transform.SetParent(this.transform);
         pov.transform.localPosition = Vector3.zero;
@@ -42,7 +45,63 @@ public class Hero : MonoBehaviour
            
         }
     }
-        
+
+    
+    
+}
+
+public struct HeroSpeed
+{
+    
+
+    public Speed mySpeed;
+    public float theSpeed;
+
+    public float RandomSpeed()
+    {
+       
+        int x = Random.Range(0, 3);
+
+        switch (x)
+        {
+            case 0:
+                mySpeed = Speed.Low;
+                break;
+
+            case 1:
+                mySpeed = Speed.Medium;
+                break;
+
+            case 2:
+                mySpeed = Speed.Fast;
+                break;
+        }
+            
+        if (mySpeed == Speed.Low)
+        {
+            theSpeed = 0.05f;
+        }
+
+        else if (mySpeed == Speed.Medium)
+        {
+            theSpeed = 0.1f;
+        }
+
+        else if (mySpeed == Speed.Fast)
+        {
+            theSpeed = 0.2f;
+        }
+        return theSpeed;
+    }
+    
+
+}
+
+public enum Speed
+{
+    Low,
+    Medium,
+    Fast
 }
 
 
