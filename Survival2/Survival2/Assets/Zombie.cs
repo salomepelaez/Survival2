@@ -21,12 +21,64 @@ public class Zombie : MonoBehaviour
                 GetComponent<Renderer>().material.color = Color.magenta;
                 break;
         }
-        
+        InvokeRepeating("ZombieMove", 5.0f, 5.0f);
         transform.tag = "Zombie";
     }
 
+    float zombieSpeed = 0.1f;
+    string move;
+
+    void ZombieMove()
+    {
+        int pst = Random.Range(0, 5);
+
+        switch (pst)
+        {
+            case 0:
+                move = "Forwards";
+                break;
+
+            case 1:
+                move = "Backwards";
+                break;
+
+            case 2:
+                move = "Right";
+                break;
+
+            case 3:
+                move = "Left";
+                break;
+        }
+
+        
+    }
+
+    public void Update()
+    {
+        if(move == "Forwards")
+        {
+            transform.position += transform.forward * zombieSpeed;
+        }
+
+        if(move == "Backwards")
+        {
+            transform.position -= transform.forward * zombieSpeed;
+        }
+
+        if (move == "Right")
+        {
+            transform.position += transform.right * zombieSpeed;
+        }
+
+        if (move == "Left")
+        {
+            transform.position -= transform.right * zombieSpeed;
+        }
+    }
+
     public MyTaste taste;
-    public void Messages()
+    public void PrintMessages()
     {
         int tastes = Random.Range(0, 6);
 
