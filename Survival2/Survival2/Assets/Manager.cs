@@ -31,11 +31,9 @@ public class Manager : MonoBehaviour
                 {
                     case 0:
                         thePeople.AddComponent<Zombie>();
-                        thePeople.GetComponent<Zombie>();
                         break;
                     case 1:
                         thePeople.AddComponent<Villagers>();
-                        thePeople.GetComponent<Villagers>();
                         break;
                 }
             }
