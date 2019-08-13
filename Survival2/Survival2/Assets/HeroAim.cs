@@ -12,7 +12,6 @@ public class HeroAim : MonoBehaviour
     void Update()
     {
         CameraRot();
-
     }
 
 	public void CameraRot()
