@@ -22,6 +22,7 @@ public class Manager : MonoBehaviour
             if (j == 0)
             {
                 thePeople.AddComponent<Hero>();
+                thePeople.AddComponent<HeroAim>();
                 thePeople.GetComponent<Renderer>().material.color = Color.black;
             }
 
