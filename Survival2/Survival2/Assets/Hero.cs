@@ -35,8 +35,8 @@ public class Hero : MonoBehaviour
     {
         if(collision.transform.tag == "Villager")
         {
-           
-            Debug.Log("Aldeano");
+
+            collision.transform.GetComponent<Villagers>().PrintNames();
         }
 
         if (collision.transform.tag == "Zombie")

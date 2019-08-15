@@ -94,61 +94,11 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    public MyTaste taste;
+    
     public void PrintMessages()
     {
-        int tastes = Random.Range(0, 6);
-
-        switch (tastes)
-        {
-            case 0:
-                taste = MyTaste.Cerebros;
-
-                break;
-
-            case 1:
-                taste = MyTaste.Corazones;
-
-                break;
-
-            case 2:
-                taste = MyTaste.Ojos;
-                break;
-
-            case 3:
-                taste = MyTaste.Orejas;
-                break;
-
-            case 4:
-                taste = MyTaste.Bocas;
-                break;
-
-        }
-
-        if (taste == MyTaste.Cerebros)
-        {
-            Debug.Log("Waaaarr quiero comer " + (taste));
-        }
-
-        if (taste == MyTaste.Corazones)
-        {
-            Debug.Log("Waaaarr quiero comer " + (taste));
-        }
-
-        if (taste == MyTaste.Ojos)
-        {
-            Debug.Log("Waaaarr quiero comer " + (taste));
-        }
-
-        if (taste == MyTaste.Orejas)
-        {
-            Debug.Log("Waaaarr quiero comer " + (taste));
-        }
-
-        if (taste == MyTaste.Bocas)
-        {
-            Debug.Log("Waaaarr quiero comer " + (taste));
-        }
+        MyTaste taste = (MyTaste) Random.Range(0, 6);
+        Debug.Log("Waaaarr quiero comer " + (taste));
     }
 }
 
