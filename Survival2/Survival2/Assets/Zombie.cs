@@ -15,7 +15,7 @@ public class Zombie : MonoBehaviour
                 GetComponent<Renderer>().material.color = Color.cyan;
                 break;
             case 1:
-                GetComponent<Renderer>().material.color = Color.green;
+                GetComponent<Renderer>().material.color = Color.green; //Tiene que ser un enum
                 break;
             case 2:
                 GetComponent<Renderer>().material.color = Color.magenta;
@@ -100,6 +100,12 @@ public class Zombie : MonoBehaviour
         MyTaste taste = (MyTaste) Random.Range(0, 6);
         Debug.Log("Waaaarr quiero comer " + (taste));
     }
+}
+
+public struct ZombieData
+{
+    public Move zM;
+    public MyTaste mT;
 }
 
 public enum MyTaste

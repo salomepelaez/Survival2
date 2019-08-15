@@ -20,32 +20,34 @@ public class Villagers : MonoBehaviour
         Debug.Log("Hola soy " + peopleNames + ". Y tengo " + Random.Range(15, 101) + " años.");
     }
 
-    public enum Names
-    {
-        Rose,
-        Ophelie,
-        Celeste,
-        Mérida,
-        Catrina,
-        Dean,
-        Will,
-        Lucas,
-        Dustin,
-        Mike,
-        Sophie,
-        Isabella,
-        Amelie,
-        Charlotte,
-        Milo,
-        Dante,
-        Ariel,
-        Suhail,
-        Jake,
-        David
-    }
+   
+}
+
+public enum Names
+{
+    Rose,
+    Ophelie,
+    Celeste,
+    Mérida,
+    Catrina,
+    Dean,
+    Will,
+    Lucas,
+    Dustin,
+    Mike,
+    Sophie,
+    Isabella,
+    Amelie,
+    Charlotte,
+    Milo,
+    Dante,
+    Ariel,
+    Suhail,
+    Jake,
+    David
 }
 
 public struct VillagersData
 {
-    //public Names peopleNames;
+    public Names peopleNames;
 }
