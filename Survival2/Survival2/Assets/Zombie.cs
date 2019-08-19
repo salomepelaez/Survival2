@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    ZombieData zombieData;
+    ZombieData zombieData; // Se creó una variable del Struct.
 
     public void Start()
     {    
-        zombieData.taste = (MyTaste) Random.Range(0, 5);   
-        Coloring(); 
-        InvokeRepeating("ZombieMove", 5.0f, 5.0f);
-        transform.tag = "Zombie";
+        zombieData.taste = (MyTaste) Random.Range(0, 5); // Al igual que en la clase "Villagers", la variable Random se utilizó en el Start para asignarla una vez por objeto.  
+        Coloring(); // Se llamó a la función que asigna los colores.
+        InvokeRepeating("ZombieMove", 5.0f, 5.0f); // Se utilizó una función de repetición para el movimiento de los zombies.
+        transform.tag = "Zombie"; // Se cambió el nombre de la etiqueta.
     }
 
+
+    // En el Update se asignaron las posibilidades de movimiento, basándose en una función creada unas líneas más abajo.
     public void Update()
     {
-        float zombieSpeed = 0.1f;
+        float zombieSpeed = 0.1f; // Se creó una variable para la velocidad de los zombies.
 
         if (move == "Forwards")
         {
@@ -47,7 +49,8 @@ public class Zombie : MonoBehaviour
     public Move zM;
     string move;
 
-    void ZombieMove()
+    // Esta es la función de movimiento antes mencionada.
+    void ZombieMove() // Se encarga de asignar variables aleatorias, creando las posibilidades de dirección.
     {
         switch (Random.Range(0, 6)) 
         {
@@ -81,14 +84,14 @@ public class Zombie : MonoBehaviour
         
     }
 
-    public void PrintMessages()
+    public void PrintMessages() // Esta función se encarga de generar los mensajes, utilizando los miembros del Enum.
     {        
         Debug.Log("Waaaarr quiero comer " + (zombieData.taste));
     }
 
     public ZombieColor mC;
    
-    public void Coloring()
+    public void Coloring() // Esta función asigna de manera aleatoria los colores, igualmente utilizando un Enum.
     {        
 
         switch(Random.Range(0, 4))
@@ -123,7 +126,7 @@ public class Zombie : MonoBehaviour
     }
 }
 
-public struct ZombieData
+public struct ZombieData // Este Struct almacena todos los datos
 {
     public Move zM;
     public MyTaste taste;
@@ -131,7 +134,7 @@ public struct ZombieData
     public string move;
 }
 
-public enum MyTaste
+public enum MyTaste // Enum de los gustos
 {
     Cerebros,
     Corazones,
@@ -140,13 +143,13 @@ public enum MyTaste
     Bocas
 }
 
-public enum Move
+public enum Move // Enum del movimiento
 {
     Idle,
     Moving
 }
 
-public enum ZombieColor
+public enum ZombieColor // Enum de los colores
 {
     Celeste,
     Lila,

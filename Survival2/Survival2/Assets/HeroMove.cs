@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class HeroMove : MonoBehaviour
 {
-    public HeroAim hA;
-    public float speed; // la cámara se va sola xd
+    public HeroAim hA; // Se creó una variable pública de HeroAim, a la cual se le asigna la cámara.
+    public float speed; // Se creó un flotante para la velocidad. Esta es reasignada desde la clase "Hero".
        
     void Update()
     {
-        Move();
-
+        Move(); // La función es llamada.
     }
 
-    private void Move()
+    private void Move() // Se creó una función para el movimiento, que luego es llamada en el Update.
     {
 
             /* El siguiente bloque de código, es el encargado de obtener de obtener las teclas que el jugador presiona, 

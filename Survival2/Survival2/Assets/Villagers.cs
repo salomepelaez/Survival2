@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class Villagers : MonoBehaviour
 {
-    public VillagersData villagersData;
+    VillagersData villagersData; // Se creó una variable del Struct.
 
     void Start()
     {
-        transform.tag = "Villager";
+        transform.tag = "Villager"; // El cambiar el nombre de la etiqueta, permite encontrar de manera sencilla el objeto con el que se colisiona.
                 
-        GetComponent<Renderer>().material.color = Color.yellow;
+        GetComponent<Renderer>().material.color = Color.yellow; // Se añadió el color amarillo a los aldeanos para poder distinguirlos de los zombies.
 
+        // A continuación se añadieron las variables del tipo Random para la edad y nombre.
+        // Este bloque de código se realizó en el Start, porque de esta manera se asignan las variables solo una vez por objeto creado.
+               
         villagersData.age = Random.Range(15, 101);
         villagersData.peopleNames = (Names)Random.Range(0, 20);
     }
 
-    public void PrintNames()
+    public void PrintNames() // Esta función es la encargada de imprimir los mensajes con las variables de los Enums.
     {
         Debug.Log("Hola soy " + villagersData.peopleNames + ". Y tengo " + villagersData.age + " años.");
     }
 }
  
-public enum Names
+public enum Names // Este Enum abriga los nombres.
 {
     Rose,
     Ophelie,
@@ -46,7 +49,7 @@ public enum Names
     David
 }
 
-public struct VillagersData
+public struct VillagersData // Este Struct almacena las variables.
 {   
     public int age;
     public Names peopleNames;    
