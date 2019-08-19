@@ -4,64 +4,14 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+    ZombieData zombieData;
 
     public void Start()
-    {
-        int color = Random.Range(0, 3);
-
-        switch (color)
-        {
-            case 0:
-                GetComponent<Renderer>().material.color = Color.cyan;
-                break;
-            case 1:
-                GetComponent<Renderer>().material.color = Color.green; //Tiene que ser un enum
-                break;
-            case 2:
-                GetComponent<Renderer>().material.color = Color.magenta;
-                break;
-        }
+    {    
+        zombieData.taste = (MyTaste) Random.Range(0, 5);   
+        Coloring(); 
         InvokeRepeating("ZombieMove", 5.0f, 5.0f);
         transform.tag = "Zombie";
-    }
-
-    public Move zM;
-    string move;
-
-    void ZombieMove()
-    {
-        int pst = Random.Range(0, 6);
-        
-        switch (pst)
-        {
-            case 0:
-
-                zM = Move.Moving;
-                move = "Forwards";
-                break;
-
-            case 1:
-                zM = Move.Moving;
-                move = "Backwards";
-                break;
-
-            case 2:
-                zM = Move.Moving;
-                move = "Right";
-                break;
-
-            case 3:
-                zM = Move.Moving;
-                move = "Left";
-                break;
-
-            case 4:
-                zM = Move.Idle;
-                move = "Idle";
-                break;
-        }
-
-        
     }
 
     public void Update()
@@ -94,18 +44,91 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    
-    public void PrintMessages()
+    public Move zM;
+    string move;
+
+    void ZombieMove()
     {
-        MyTaste taste = (MyTaste) Random.Range(0, 6);
-        Debug.Log("Waaaarr quiero comer " + (taste));
+        switch (Random.Range(0, 6)) 
+        {
+            case 0:
+
+                zM = Move.Moving;
+                move = "Forwards";
+                break;
+
+            case 1:
+                zM = Move.Moving;
+                move = "Backwards";
+                break;
+
+            case 2:
+                zM = Move.Moving;
+                move = "Right";
+                break;
+
+            case 3:
+                zM = Move.Moving;
+                move = "Left";
+                break;
+
+            case 4:
+                zM = Move.Idle;
+                move = "Idle";
+                break;
+        }
+
+        
+    }
+
+    public void PrintMessages()
+    {        
+        Debug.Log("Waaaarr quiero comer " + (zombieData.taste));
+    }
+
+    public ZombieColor mC;
+   
+    public void Coloring()
+    {        
+
+        switch(Random.Range(0, 4))
+        {
+            case 0:
+            mC = ZombieColor.Celeste;
+            break;
+
+            case 1:
+            mC = ZombieColor.Lila;
+            break;
+
+            case 2:
+            mC = ZombieColor.Verde;
+            break;
+        }
+
+        if(mC == ZombieColor.Celeste)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+        }
+             
+        else if(mC == ZombieColor.Lila)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.magenta;
+        }
+
+        else if(mC == ZombieColor.Verde)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.green;
+        }        
     }
 }
 
 public struct ZombieData
 {
     public Move zM;
-    public MyTaste mT;
+    public MyTaste taste;
+    public ZombieColor mC;
+    public string move;
 }
 
 public enum MyTaste
@@ -121,6 +144,13 @@ public enum Move
 {
     Idle,
     Moving
+}
+
+public enum ZombieColor
+{
+    Celeste,
+    Lila,
+    Verde
 }
 
 

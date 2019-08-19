@@ -45,9 +45,6 @@ public class Hero : MonoBehaviour
            
         }
     }
-
-    
-    
 }
 
 public struct HeroSpeed
@@ -79,24 +76,26 @@ public struct HeroSpeed
         if (mySpeed == Speed.Low)
         {
             theSpeed = 0.05f;
-            Debug.Log("Leeeento");
         }
 
         else if (mySpeed == Speed.Medium)
         {
             theSpeed = 0.1f;
-            Debug.Log("Normalito");
         }
 
         else if (mySpeed == Speed.Fast)
         {
             theSpeed = 0.2f;
-            Debug.Log("Woody y Buzz se acercan a toda velocidad");
         }
         return theSpeed;
     }
     
 
+}
+
+public struct HeroData
+{
+    public Speed mySpeed;
 }
 
 public enum Speed

@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class Villagers : MonoBehaviour
 {
+    public VillagersData villagersData;
+
     void Start()
     {
         transform.tag = "Villager";
                 
         GetComponent<Renderer>().material.color = Color.yellow;
 
+        villagersData.age = Random.Range(15, 101);
+        villagersData.peopleNames = (Names)Random.Range(0, 20);
     }
-
-    
 
     public void PrintNames()
     {
-        Names peopleNames = (Names)Random.Range(0, 20);
-        Debug.Log("Hola soy " + peopleNames + ". Y tengo " + Random.Range(15, 101) + " años.");
+        Debug.Log("Hola soy " + villagersData.peopleNames + ". Y tengo " + villagersData.age + " años.");
     }
-
-   
 }
-
+ 
 public enum Names
 {
     Rose,
@@ -48,6 +47,7 @@ public enum Names
 }
 
 public struct VillagersData
-{
-    public Names peopleNames;
+{   
+    public int age;
+    public Names peopleNames;    
 }
