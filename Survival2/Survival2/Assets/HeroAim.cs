@@ -8,12 +8,12 @@ public class HeroAim : MonoBehaviour
     float mouseX;
     float mouseY;
     float sensitivity = 40.0f;
-    float xAxisClamp = 0.0f;
+    float axisLimit = 0.0f;
 
     void Update()
     {
         mouseX += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        xAxisClamp = mouseY;
+        axisLimit = mouseY;
 
         if (InvertedMouse)
         {
@@ -24,17 +24,17 @@ public class HeroAim : MonoBehaviour
             mouseY -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
         }
 
-        if (xAxisClamp > 90.0f)
+        if (axisLimit > 90.0f)
         {
-            xAxisClamp = 90.0f;
-            mouseY = 0.0f;
+            axisLimit = 90.0f;
+            mouseY = 90.0f;
             
         }
 
-        else if (xAxisClamp < -90.0f)
+        else if (axisLimit < -90.0f)
         {
-            xAxisClamp = -90.0f;
-            mouseY = 0.0f;
+            axisLimit = -90.0f;
+            mouseY = -90.0f;
            
         }
 
