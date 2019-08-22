@@ -38,7 +38,7 @@ public class Manager : MonoBehaviour
                         thePeople.AddComponent<Zombie>(); // Se agregan los componentes de su respectiva clase.
                         break;
                     case 1:
-                        thePeople.AddComponent<Villagers>(); // Se agregan los componentes de su respectiva clase.
+                        thePeople.AddComponent<Villagers>(); // Se agregan los componentes de su respectiva clase. 
                         break;
                 }
             }
